@@ -1,0 +1,287 @@
+<h1 style="margin-left: 30%;">Un CV  <span>parfait</span> en <span>5 minutes</span></h1>
+
+<table class="responstable">
+  
+  <tr>
+    <th>Profil</th>
+    <th data-th="Driver details"><span>Education</span></th>
+    <th>Expériences</th>
+    <th>Compétances</th>
+    <th>Languages</th>
+    <th>Loisirs</th>
+  </tr>
+  
+ <td>
+     
+     <tr  data-toggle="modal" data-target="#exampleModal" (click) = "getByIdResume(resumeSelected.id)">{{resumeSelected.headline}} <td> <img src="assets/refresh.png"  style="height: 20px;width: 20px; cursor: pointer;" /></td></tr>
+     
+ </td>
+ <td>
+    <tr *ngFor="let edu of listOfEducationUser" data-toggle="modal" data-target="#exampleModalF" (click) = "getByIdEducation(edu.id)">{{edu.branch}}  <td><img  src="assets/refresh.png"  style="height: 20px;width: 20px; cursor: pointer;" /></td></tr>
+
+    
+</td>
+<td>
+    <tr *ngFor="let exp of listOfExperienceUser" data-toggle="modal" data-target="#exampleModalE" (click) = "getByIdExperience(exp.id)">{{exp.title}} <td><img src="assets/refresh.png"  style="height: 20px;width: 20px; cursor: pointer;" /></td> </tr>
+</td>
+<td>
+    <tr *ngFor="let skill of listOfSkillsUser" data-toggle="modal" data-target="#exampleModalC" (click) = "getByIdSkille(skill.id)">{{skill.label}} <td><img src="assets/refresh.png"  style="height: 20px;width: 20px; cursor: pointer;" /></td></tr>
+</td>
+<td>
+    <tr *ngFor="let langue of listOfLanguesUser" data-toggle="modal" data-target="#exampleModalLa"  (click) = "getAllLang(langue)">{{langue}} <td><img src="assets/refresh.png"  style="height: 20px;width: 20px; cursor: pointer;" /></td></tr>
+</td>
+<td>
+    <tr *ngFor="let loisir of listOfLoisirUser" data-toggle="modal" data-target="#exampleModalLo" (click) = "getAllLoisir(loisir)">{{loisir}} <td><img src="assets/refresh.png"  style="height: 20px;width: 20px; cursor: pointer;" /></td></tr>
+</td>
+  
+</table>
+
+ <!-----Profil------>
+ <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top: 10%;">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel" style="margin-left: 50%;">Profil</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="corps">
+            <div  class="col-md-6">
+                <form >
+                  <div class="form-floating" style="height: 200px;">
+                    <input [(ngModel)] = "updatedResume.headline" type="email" class="form-control" id="exampleFormControlInput1" placeholder="Nom et prénom" style="margin-bottom: 5px;margin-left: 10%;width: 400px;" name="headline" >
+                    <textarea [(ngModel)] = "updatedResume.summary" class="form-control" placeholder="Description du profil" id="floatingTextarea2" style="height: 100px; margin-left: 10%;width: 400px;"  name="summary" ></textarea>
+                   
+                  </div>
+                  <img src="assets/annuler.png" #closebutton style="width: 30px; height: 30px; cursor: pointer;margin: 5px;" data-dismiss="modal" alt="">
+                  <img src="assets/confirmer.png" style="width: 30px; height: 30px; cursor: pointer;margin: 5px;"  (click) ="updateResume()">
+
+                   <!--  <button style="margin: 10px;" type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                    <button class="btn btn-success" (click) = "updateResume()">Update</button> -->
+                </form>
+    
+            </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+
+      <!-----Formation------>
+
+      <div class="modal fade" id="exampleModalF" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top: 10%;">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel" style="margin-left: 45%;">Formation</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" id="corps">
+                <div  class="col-md-6">
+                   
+                       
+                      <form >
+                       
+                        <div class="mb-3" style="height: 200px; margin-left: 10%;width: 400px;">
+                        
+                          <input type="text" name="branch" [(ngModel)] = "updatedEducation.branch" class="form-control" id="exampleFormControlInput1" placeholder="Nom de l'université" style="margin-bottom: 5px;">
+                          <input type="text" name="grade" [(ngModel)] = "updatedEducation.grade" class="form-control" id="exampleFormControlInput1" placeholder="Spécialité">
+                          <!-- <input type="text" name="degree" [(ngModel)] = "degree" class="form-control" id="exampleFormControlInput1" placeholder="degree"> -->
+                          <select   name="degree" [(ngModel)] = "updatedEducation.degree" class="form-select" aria-label="Default select example"  style="margin-top: 5px; width: 100%;">
+                            <option selected>Choisir un grade</option>
+                            <option value="ENGINEERING">ENGINEERING</option>
+                            <option value="LICENCE">LICENCE</option>
+                            <option value="PHD">PHD</option>
+                            
+                          </select>
+                        <div style="margin-top: 5px;">
+                          <label for="birthday" >Date de début:</label>
+                          <input name="startYear" [(ngModel)] = "updatedEducation.startYear" type="datetime-local" id="birthday" name="birthday" style="margin-left: 10px; width: 71%;">
+                        </div>
+                         <div>
+                          <label for="birthdayy"  >Date de fin:</label>
+                          <input type="datetime-local" id="birthdayy" name="endYear" [(ngModel)] = "updatedEducation.endYear" style="margin-left: 31px; width: 71%;">
+                         </div> 
+                         
+                        </div>
+                       
+                        <img src="assets/annuler.png" #closebutton2 style="width: 30px; height: 30px; cursor: pointer;margin: 5px;" data-dismiss="modal" alt="">
+                        <img src="assets/confirmer.png" style="width: 30px; height: 30px; cursor: pointer;margin: 5px;"  (click) ="updateEducation()">
+                          <!-- <button style="margin: 10px;" type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                          <button class="btn btn-success" (click) = "updateEducation()" >Update</button> -->
+                      </form>
+                   
+        
+                </div>
+            </div>
+          </div>
+        </div>
+        </div>
+
+
+              <!-----Expérience------>
+
+              <div class="modal fade" id="exampleModalE" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top: 8%;">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel" style="margin-left: 45%;">Experience</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body" id="corps">
+                        <div  class="col-md-6">
+                            
+                               
+                              <form >
+                               
+                                <div class="mb-3" style="height: 290px; margin-left: 10%;width: 400px;">
+                                
+                                  <input type="text" name="title" [(ngModel)] = "updatedExperience.title" class="form-control" id="exampleFormControlInput1" placeholder="Nom de l'entreprise" style="margin-bottom: 5px;">
+                                  <textarea class="form-control" placeholder="Description du poste" id="floatingTextarea2" style="height: 100px; width: 400px;"  name="description" [(ngModel)] = "updatedExperience.description"></textarea>
+                                  <select name="employmentType" [(ngModel)] = "updatedExperience.employmentType" class="form-select" aria-label="Default select example"  style="margin-top: 5px; width: 100%;">
+                                    <option selected>Choisir le type de contrat</option>
+                                    <option value="CDD">CDD</option>
+                                    <option value="CDI">CDI</option>
+                                    <option value="SIVP">SIVP</option>
+                                    
+                                  </select>
+                                <div style="margin-top: 5px;">
+                                  <label for="birthday" >Date de début:</label>
+                                  <input type="datetime-local" name="startYear" [(ngModel)] = "updatedExperience.startYearExp" id="birthday"  style="margin-left: 10px; width: 71%;">
+                                </div>
+                                 <div>
+                                  <label for="birthdayy" >Date de fin:</label>
+                                  <input type="datetime-local" id="birthdayy" name="endYear" [(ngModel)] = "updatedExperience.endYearExp" style="margin-left: 31px; width: 71%;">
+                                 </div> 
+                               
+                                 
+                                </div>
+                               
+                                <img src="assets/annuler.png" #closebutton3 style="width: 30px; height: 30px; cursor: pointer;margin: 5px;" data-dismiss="modal" alt="">
+                                <img src="assets/confirmer.png" style="width: 30px; height: 30px; cursor: pointer;margin: 5px;"  (click) ="updateExperience()"> 
+
+                                <!--   <button style="margin: 10px;" type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                                  <button class="btn btn-success" (click) ="updateExperience()">Update</button> -->
+                              </form>
+                            
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+
+
+                     <!-----Compétence------>
+
+        <div class="modal fade" id="exampleModalC" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top: 10%;">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel" style="margin-left: 43%;">Compétance</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body" id="corps">
+                    <div  class="col-md-6">
+                      
+                           
+                          <form >
+                           
+                            <div class="mb-3" style="height: 120px; margin-left: 10%;width: 400px;">
+                            
+                              <input type="text" name="label" [(ngModel)] = "updatedSkill.label" class="form-control" id="exampleFormControlInput1" placeholder="Saisir vos compétance (exemple: java)" style="margin-bottom: 5px;">
+                              
+                            </div>
+                            <img src="assets/annuler.png"  #closebutton4 style="width: 30px; height: 30px; cursor: pointer;margin: 5px;" data-dismiss="modal" alt="">
+                                <img src="assets/confirmer.png" style="width: 30px; height: 30px; cursor: pointer;margin: 5px;"  (click) ="updateSkill()"> 
+                            
+                            <!--   <button style="margin: 10px;" type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                              <button class="btn btn-success" (click) = "updateSkill()">Update</button> -->
+                          </form>
+                        
+            
+                    </div>
+                </div>
+              </div>
+            </div>
+            </div>
+
+
+                <!-----Langue------>
+
+        <div class="modal fade" id="exampleModalLa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top: 10%;">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel" style="margin-left: 43%;">Langues</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body" id="corps">
+                    <div  class="col-md-6">
+                        <form >
+                           
+                          <form >
+                           
+                            <div class="mb-3" style="height: 120px; margin-left: 10%;width: 400px;">
+                            
+                              <input type="text" name="label" class="form-control" [(ngModel)] = "updatedLangue.label" id="exampleFormControlInput1" placeholder="Saisir la langue (exemple : arabe : natif)" style="margin-bottom: 5px;">
+                              
+                            </div>
+                           
+                            <img src="assets/annuler.png" #closebutton5 style="width: 30px; height: 30px; cursor: pointer;margin: 5px;" data-dismiss="modal" alt="">
+                            <img src="assets/confirmer.png" style="width: 30px; height: 30px; cursor: pointer;margin: 5px;"  (click) ="updateLangue()">  
+                             <!--  <button style="margin: 10px;" type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                              <button class="btn btn-success" (click) = "updateLangue()">Update</button> -->
+                          </form>
+                        </form>
+            
+                    </div>
+                </div>
+              </div>
+            </div>
+            </div>
+  
+      <!-----Loisirs------>
+
+      <div class="modal fade" id="exampleModalLo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top: 10%;">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel" style="margin-left: 43%;">Loisirs</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" id="corps">
+                <div  class="col-md-6">
+                    <form >
+                       
+                      <form >
+                       
+                        <div class="mb-3" style="height: 120px; margin-left: 10%;width: 400px;">
+                        
+                          <input name="label"  [(ngModel)] = "updatedLoisir.label" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Saisir le loisir (exemple : natation)" style="margin-bottom: 5px;">
+                          
+                        </div>
+                       
+                            
+                        <img src="assets/annuler.png" #closebutton6 style="width: 30px; height: 30px; cursor: pointer;margin: 5px;" data-dismiss="modal" alt="">
+                        <img src="assets/confirmer.png" style="width: 30px; height: 30px; cursor: pointer;margin: 5px;"  (click) ="updateLoisir()">  
+                          <!-- <button style="margin: 10px;" type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                          <button class="btn btn-success" (click)= "updateLoisir()">Update</button> -->
+                      </form>
+                    </form>
+        
+                </div>
+            </div>
+          </div>
+        </div>
+        </div>

@@ -1,0 +1,93 @@
+.container .btn {
+    position: absolute;
+    top: 60%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #555;
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+
+
+
+    tab-size: 4;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    --font-family-header: "ui-sans-serif";
+    --font-family-sans: "ui-sans-serif";
+    --color-brand-50: #fbf9fe;
+    --color-brand-100: #eae3fb;
+    --color-brand-200: #c9b8f3;
+    --color-brand-300: #a88cec;
+    --color-brand-400: #8760e5;
+    --color-brand-500: #6634de;
+    --color-background: #fbf9fe;
+    --border-radius-button: 50px;
+    font-family: inherit;
+    --tw-bg-opacity: 1;
+    border: 0 solid #e4e4e7;
+    --tw-shadow: 0 0 transparent;
+    --tw-ring-inset: var(--tw-empty,/*!*/ /*!*/);
+    --tw-ring-offset-width: 0px;
+    --tw-ring-offset-color: #fff;
+    --tw-ring-color: rgba(59,130,246,0.5);
+    --tw-ring-offset-shadow: 0 0 transparent;
+    --tw-ring-shadow: 0 0 transparent;
+    text-decoration: inherit;
+    background-color: var(--color-brand-500);
+    border-color: transparent;
+    border-radius: var(--border-radius-button);
+    border-width: 1px;
+    box-sizing: content-box;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    max-width: 100%;
+    overflow: hidden;
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    padding-right: 1.75rem;
+    padding-left: 1.75rem;
+    --tw-text-opacity: 1;
+    color: rgba(255,255,255,var(--tw-text-opacity));
+    transition-property: background-color,border-color,color,fill,stroke;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    transition-duration: .15s;
+    outline: none;
+    width: 100px;
+    height: 20px;
+    margin-top: 50px;
+  }
+  .container {
+      margin: 0%;
+      padding: auto;
+  }
+
+
+
+  .img-container {
+    display:flex;
+     flex-wrap: wrap;
+    align-content: space-evenly;
+   
+    }
+    .img-container img{
+     margin:30px ;   
+    width:50%;
+    }
+
+  /*   #rcorners3 {
+      border-radius: 15px 50px;
+      background: #8873c0;
+      padding: 20px;
+      width: 200px;
+      height: 150px;
+    } */

@@ -1,0 +1,19 @@
+<div class="container" onclick="onclick">
+    <div class="top"></div>
+    <div class="bottom"></div>
+    <div class="center" >
+        <h2>Créer un compte</h2>
+    <form #f="ngForm" (ngSubmit)="onRegister(f.value)">
+       <!--  <input type="text" placeholder="nom" name="lastName" ngModel />  -->
+        <input type="text" placeholder="prénom" name="firstName" ngModel style="width: 47%;"/>
+        <input type="text" placeholder="nom" name="lastName" ngModel style="width: 49.3%;" />
+        <input type="text" placeholder="Image url" name="imageUrl" ngModel/>
+        <input type="email" placeholder="email" name="email" ngModel/>
+        <input type="text" placeholder="login" name="login" ngModel/>
+        <input type="password" placeholder="password" name="password" ngModel/> 
+        
+        <button type="submit" class="login-btn">S'inscrire</button> 
+    </form> 
+        <h2>&nbsp;</h2>
+    </div>
+</div>

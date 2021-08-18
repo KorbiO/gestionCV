@@ -1,0 +1,17 @@
+<div id="full">
+<div class="container" onclick="onclick">
+    <div class="top"></div>
+    <div class="bottom"></div>
+    <div class="center">
+        <h2>Se connecter</h2>
+        <form #f="ngForm" (ngSubmit)="onLogin(f.value)">
+        <input type="email" placeholder="login" name="username" ngModel  />
+        <input type="password" placeholder="password" name="password" ngModel  /> 
+        <button type="submit" class="login-btn">Login</button> 
+    </form>
+        <a class="reset-psw" href="#">Forgot your password?</a>
+        <h2>&nbsp;</h2>
+    </div>
+</div>
+</div>
+

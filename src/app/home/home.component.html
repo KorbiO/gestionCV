@@ -1,0 +1,19 @@
+<div class="container">
+<img src="assets/Capture.PNG" />
+<button class="btn" routerLink="/addCv">Créer un CV</button>
+<button class="btn" style="margin-left: 15%;" (click)="checkUserHasCv()">Liste de CV</button>
+</div>
+<div class="row">
+<div class="col-md-4 img-container" *ngFor="let user of listOfUserHasCv" style="display:block;
+display:inline;">
+
+    <h2 style="margin-top: 70px;">{{user.firstName}} CV</h2> 
+    <img src="{{user.imageUrl}}" [routerLink]="['/displayCv',user.id]" height="150px" width="350px" style="cursor: pointer;clip-path:ellipse(50% 50%);">
+    <img src="assets/delete.png"  (click)= "deleteCv()" *ngIf="user.id ===userAuthenticatedId" style="height: 38px;width: 38px;position: relative; bottom: 33%; left:-25%; cursor: pointer;" />
+    <img src="assets/refresh.png" routerLink="/updateCv" *ngIf="user.id ===userAuthenticatedId" style="height: 38px;width: 38px;position: relative; bottom: 66%; left:27%; cursor: pointer;" />
+
+</div>
+
+</div>
+
+<app-footer></app-footer>
